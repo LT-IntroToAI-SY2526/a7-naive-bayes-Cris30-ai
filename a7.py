@@ -137,6 +137,13 @@ class BayesClassifier:
             # Probability of token in negative: (count + 1) / (total_neg + vocab_size)
             neg_count = self.neg_freqs.get(token, 0)
             neg_log_prob += math.log((neg_count + 1) / (sum_neg + vocab_size))
+        
+        print(f"Log probability of positive: {pos_log_prob}")
+        print(f"Log probability of negative: {neg_log_prob}")
+        
+        
+        
+        
         return "positive" if pos_log_prob > neg_log_prob else "negative"
 
 
@@ -296,9 +303,22 @@ if __name__ == "__main__":
 
     # # uncomment the below lines once you've implemented `classify`
     print("\nThe following should all be positive.")
+    print(b.classify('I like the feel of these thicker and more heavy weaved tshirts. They are better for cold weather climates but also good in warmer climates to wick away sweat'))
+    print(b.classify('I have been wearing these for a bit now and they have been really solid. The material is soft and comfortable without feeling too thin, and they are easy to wear all day.'))
     print(b.classify('I love computer science'))
     print(b.classify('this movie is fantastic'))
+    print(b.classify('Summer break is almost here.  I am super excited and I know that its going to be the best'))
+    print(b.classify('This movie is amazing'))
+    print(b.classify('I really like this movie'))
+    print(b.classify('I am so excited to go Mexico and surf'))
     print("\nThe following should all be negative.")
+    print(b.classify('I did not appreciate the quality'))
+    print(b.classify('I am not a fan of this movie'))
+    print(b.classify('These shrink. Buy one size larger. I am not going to try and return a 17 dollar package of shirts that have been through the wash'))
+    print(b.classify('I am scared of the dark'))
+    print(b.classify(' I do not know if I will like make it in time'))
+    print(b.classify('I hate computer science'))
     print(b.classify('rainy days are the worst'))
     print(b.classify('computer science is terrible'))
+    print("\nThe follwoing is to test out the method with each groups responses")
     pass
